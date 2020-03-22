@@ -4,6 +4,7 @@ import os
 class BaseConfig(object):
     DEBUG = False
     TESTING = False
+    REDIS_URL = "redis://@localhost:6379/0"
 
 
 class DevelopmentConfig(BaseConfig):

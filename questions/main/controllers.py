@@ -5,10 +5,6 @@ main = Blueprint('main', __name__)
 
 
 @main.route('/')
-def index():
-    return "Main"
-
-@main.route('questions/')
 def display_questions():
     questions = [
         {

@@ -1,6 +1,6 @@
 import json
 
-from questions import redis_client
+from questions.redis_client import redis_client
 
 
 def get_questions() -> dict:

@@ -1,0 +1,7 @@
+"""Module that interacts with the Ghibli API"""
+
+from flask import Blueprint
+
+main_bp = Blueprint('main', __name__, template_folder='templates')
+
+from . import controllers

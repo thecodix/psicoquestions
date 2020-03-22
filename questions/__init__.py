@@ -1,9 +1,9 @@
 from flask import Flask
-from questions.redis_client import redis_client
 
 from questions.admin.controllers import admin
 from questions.config import configure_app
-from questions.main.controllers import main
+from questions.main import main_bp
+from questions.redis_client import redis_client
 
 
 def create_app():
@@ -18,5 +18,5 @@ def create_app():
 
 
 def register_blueprints(app):
-    app.register_blueprint(main, url_prefix='/questions')
+    app.register_blueprint(main_bp, url_prefix='/questions')
     app.register_blueprint(admin, url_prefix='/admin')

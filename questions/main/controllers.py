@@ -9,10 +9,12 @@ def home():
     return render_template("index.htm")
 
 
-@main_bp.route('/all')
+@main_bp.route('/all', methods = ['GET','POST'])
 def display_questions():
     questions = utils.get_questions()
     form = forms.QuestionForm(request.form)
+    if request.method == 'POST':
+        print(form.answer.data)
 
     
     return render_template("questions.htm", questions=questions, form=form)

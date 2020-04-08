@@ -1,7 +1,6 @@
-from flask import render_template, request
+from flask import render_template
 
 from questions.main import utils, main_bp
-from questions import forms 
 
 
 @main_bp.route("/")
@@ -9,12 +8,7 @@ def home():
     return render_template("index.htm")
 
 
-@main_bp.route('/all', methods = ['GET','POST'])
+@main_bp.route('/all')
 def display_questions():
     questions = utils.get_questions()
-    form = forms.QuestionForm(request.form)
-    if request.method == 'POST':
-        print(form.answer.data)
-
-    
-    return render_template("questions.htm", questions=questions, form=form)
+    return render_template("questions.htm", questions=questions)

@@ -1,11 +1,13 @@
 {% extends 'layout.htm' %}
 {% block container %}
+
+<form action="" method="POST">
   {% for question in questions %}
     {{question.title}}
-      <ul>
-      {% for answer in question.answers %}
-        <li>{{answer}}</li>
-     {% endfor %}
-      </ul>
   {% endfor %}
+    <hr><br>
+  {{form.answer}}
+  <br><br>
+    <input type="submit" class="btn btn-secondary" value="contestar">
+</form>
 {% endblock %}

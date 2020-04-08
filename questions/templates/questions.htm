@@ -1,11 +1,42 @@
 {% extends 'layout.htm' %}
 {% block container %}
-  {% for question in questions %}
-    {{question.title}}
-      <ul>
-      {% for answer in question.answers %}
+
+{% for question in questions %}
+<form action="" method="POST">
+  {{question.title}}
+  <hr><br> 
+  <ul>
+  {% for answer in question.answers %}
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+      <label class="form-check-label" for="exampleRadios1">
         <li>{{answer}}</li>
-     {% endfor %}
-      </ul>
-  {% endfor %}
+      </label>
+    </div>
+    {% endfor %}
+    <br><br>
+  <input type="submit" class="btn btn-secondary" value="contestar">
+  </ul>
+</form>
+{% endfor %}
+ 
+<!--Ejemplo con form-->
+
+<br><br><br><br>
+<form action="" method="POST">
+  {% for question in questions %}
+      {{question.title}}
+    {% endfor %}
+      <hr><br>
+  <ul>
+  <div class="form-check">
+    <input class="form-check-input" label='answer' type="radio" name="exampleRadios" id="exampleRadios1" value="value" checked>
+    <label class="form-check-label" for="exampleRadios1">
+      {{form.answer}}
+    </label>    
+  </div>
+  <br><br>
+    <input type="submit" class="btn btn-secondary" value="contestar">
+  </ul>
+</form>
 {% endblock %}

@@ -1,11 +1,15 @@
 {% extends 'layout.htm' %}
+
 {% block container %}
-  {% for question in questions %}
-    {{question.title}}
-      <ul>
-      {% for answer in question.answers %}
-        <li>{{answer}}</li>
-     {% endfor %}
-      </ul>
-  {% endfor %}
+  
+{% for question in questions %}
+  {{question.title}}
+  <hr><br>
+{% endfor %}
+  <form method="POST">
+    {{form.answer}}
+    <br>
+    <button type="submit" class="btn btn-secondary">Enviar</button>
+  </form>
+  
 {% endblock %}

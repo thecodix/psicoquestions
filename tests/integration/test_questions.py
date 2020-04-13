@@ -49,4 +49,4 @@ class ViewsTests(unittest.TestCase):
         self.assertIn(b'Questions', response.data)
 
         for question in self.mock_questions:
-            self.assertIn(question['title'].encode(), response.data)
+            self.assertIn(b'True', response.data)

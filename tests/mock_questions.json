@@ -1,9 +1,44 @@
 [
     {
-        "title": "Question 1?",
+        "id": "atc_001",
+        "title": " La interferencia Stroop es:",
         "answers": [
-            "True",
-            "False"
+            {
+                "id": "atc_001_a",
+                "text": "Asimétrica (la palabra interfiere en la denominación del color)",
+                "correct": "True"
+            },
+            {
+                "id": "atc_001_b",
+                "text": "Bidireccional (la palabra y el color se interfieren por igual)",
+                "correct": "False"
+            },
+            {
+                "id": "atc_001_c",
+                "text": "Simétrica (la denominación del color interfiere en la palabra)",
+                "correct": "False"
+            }
+        ]
+    },
+    {
+        "id": "atc_002",
+        "title": "El modelo de atención de Kahneman es:",
+        "answers": [
+            {
+                "id": "atc_002_a",
+                "text": "De recursos limitados",
+                "correct": "True"
+            },
+            {
+                "id": "atc_002_b",
+                "text": "De selección temprana",
+                "correct": "False"
+            },
+            {
+                "id": "atc_002_c",
+                "text": "De selección tardía",
+                "correct": "False"
+            }
         ]
     }
 ]

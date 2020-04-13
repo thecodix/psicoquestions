@@ -1,8 +1,18 @@
-from wtforms import Form, RadioField, StringField
+from wtforms import Form, RadioField, validators
+from questions.redis_client import redis_client
 
 
 class QuestionForm(Form):
-    answer = RadioField('label', choices=[('value_true','True'),('value_false','False')])
+    answers = RadioField('label', choices=[], validators=[validators.InputRequired()])
 
+    def validate(self):
+        if self.errors:
+            return False
 
-    
+        answer_id = self.data['answers']
+        # TODO this can be better
+        if redis_client.hget('answer', answer_id) == b"False":
+            return False
+
+        return True
+

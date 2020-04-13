@@ -42,11 +42,16 @@ class ViewsTests(unittest.TestCase):
         """Stops patches"""
         self.questions_patch.stop()
 
+    def test_index_route_returns_code_200(self):
+        """ Route '/' returns code 200 """
+        response = self.test_client.get('/', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
     def test_html_contains_list_of_questions(self):
         """Test questions are displayed in the page"""
         response = self.test_client.get('/questions/all', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Questions', response.data)
 
-        for question in self.mock_questions:
-            self.assertIn(b'True', response.data)
+        question = self.mock_questions[0]
+        self.assertIn(question['title'].encode(), response.data)

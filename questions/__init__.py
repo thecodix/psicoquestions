@@ -9,7 +9,8 @@ from questions.redis_client import redis_client
 def create_app():
     """Creates the app with redis instance and Blueprints registered"""
     app = Flask(__name__,
-                template_folder='templates',)
+                template_folder='templates',
+                static_folder='static')
     configure_app(app)
     redis_client.init_app(app)
     app.jinja_env.add_extension('jinja2.ext.loopcontrols')

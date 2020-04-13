@@ -48,5 +48,5 @@ class ViewsTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Questions', response.data)
 
-        for question in self.mock_questions:
-            self.assertIn(question['title'].encode(), response.data)
+        question = self.mock_questions[0]
+        self.assertIn(question['title'].encode(), response.data)

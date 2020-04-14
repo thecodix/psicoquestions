@@ -9,5 +9,6 @@ services:
             - .:/psicoquestions
         depends_on:
             - redis
+
     redis:
         image: redis

@@ -31,6 +31,7 @@ class ViewsTests(unittest.TestCase):
         cls.questions_patch = mock.patch('questions.main.utils.get_questions')
         cls.mock_questions = get_mock_data('tests/mock_questions.json')
 
+
     def setUp(self):
         """Setup activates the patches with the mocked data"""
         super(ViewsTests, self).setUp()
@@ -38,18 +39,28 @@ class ViewsTests(unittest.TestCase):
         self.movies = self.questions_patch.start()
         self.movies.return_value = self.mock_questions
 
+
     def tearDown(self):
         """Stops patches"""
         self.questions_patch.stop()
 
+
     def test_index_route_returns_code_200(self):
-        """ Route '/' returns code 200 """
+        """Route '/' returns code 200."""
         response = self.test_client.get('/', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Main page', response.data)
+        
+
+    def test_invalid_url_return_code_404(self):
+        """Ivalid url returns code 404."""
+        response = self.test_client.get('tomate', follow_redirects=True)
+        self.assertEqual(response.status_code, 404)
+
 
     def test_html_contains_list_of_questions(self):
         """Test questions are displayed in the page"""
-        response = self.test_client.get('/questions/all', follow_redirects=True)
+        response = self.test_client.get('/all', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Questions', response.data)
 

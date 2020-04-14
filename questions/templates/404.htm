@@ -1,0 +1,19 @@
+{% extends 'layout.htm' %}
+
+{% block container %}
+
+	<title>404 HTML</title>
+<body>
+	<div id="notfound">
+		<div class="notfound">
+			<div class="notfound-404">
+				<h1>4<span></span>4</h1>
+			</div>
+			<h2>Oops! Pagina no encontrada</h2>
+			<p>Lo sentimos, pero la página que busca no existe, o se ha eliminado. Puede que le haya cambiado el nombre o no esté disponible temporalmente</p>
+			<a href="{{ url_for('main.home') }}">Vuelve a la página pricipal</a>
+		</div>
+	</div>
+</body>
+
+{% endblock %}
